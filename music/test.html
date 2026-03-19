@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset + basic body */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      background: #1a1a1a;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Container for content */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Playlist embed */
+    iframe {
+      width: 100%;
+      height: 450px; /* increase if your playlist is long */
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      section h2 { font-size: 1.3rem; }
+      iframe { height: 350px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Music</h1>
+  </header>
+
+  <!-- Main content -->
+  <div class="container">
+
+    <!-- All Tracks Playlist -->
+    <section>
+      <h2>All Tracks</h2>
+      <iframe 
+        scrolling="no" 
+        frameborder="no" 
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?https://soundcloud.com/bantsfield/sets/all-tracks&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true">
+      </iframe>
+    </section>
+
+    <!-- Optional: Add more playlists or sections here -->
+    <!-- Example:
+    <section>
+      <h2>EPs & Singles</h2>
+      <iframe src="..."></iframe>
+    </section>
+    -->
+
+  </div>
+</body>
+</html>
