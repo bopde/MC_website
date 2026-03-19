@@ -11,15 +11,22 @@
       height: 100%;
     }
     .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    iframe {
       width: 100%;
-      height: 600px;
+      height: 100%;
+      background: rgba(7,28,46,0.88);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Make iframe fill the container */
+    iframe {
+      width: 90%; /* or 100% if you want edge-to-edge */
+      height: 90%; /* or 100% */
       border: none;
       border-radius: 12px;
+      background: rgba(7,28,46,0.88); /* Force iframe background */
+      box-shadow: none;
     }
   </style>
 </head>
