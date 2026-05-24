@@ -170,7 +170,25 @@
     .music-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 80% 60%, rgba(93,122,90,0.22) 0%, transparent 60%), radial-gradient(ellipse 50% 70% at 20% 30%, rgba(26,82,118,0.3) 0%, transparent 60%); pointer-events: none; }
     #music .section-tag { background: rgba(138,170,122,0.18); color: var(--fern); }
     #music .section-title { color: var(--cream); }
-    #music .section-intro { color: rgba(245,240,232,0.58); }
+    #music .section-intro { color: rgba(245,240,232,0.58); max-width: 620px; }
+
+    /* Floating performance photo */
+    .music-header { position: relative; }
+    .music-photo {
+      position: absolute;
+      top: -2rem;
+      right: 8rem;
+      width: 320px;
+      height: 400px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      opacity: 0.8;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.6) 60%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.6) 60%, transparent 100%);
+      animation: fadeUp 1.2s 0.3s ease both;
+    }
     .music-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .instruments-showcase { display: flex; flex-direction: column; gap: 1rem; }
     .instr-card { display: flex; align-items: center; gap: 1.4rem; padding: 1.4rem 1.6rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(138,170,122,0.15); border-radius: 4px; transition: background 0.25s, border-color 0.25s, transform 0.2s; }
@@ -178,7 +196,7 @@
     .instr-icon { font-size: 1.8rem; flex-shrink: 0; }
     .instr-body h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.18rem; }
     .instr-body p { font-size: 0.81rem; color: rgba(245,240,232,0.45); line-height: 1.55; }
-    .music-context { position: relative; z-index: 1; }
+    .music-context { position: relative; z-index: 1; padding-top: 2rem; }
     .genre-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fern); margin-bottom: 0.9rem; display: block; }
     .genre-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; }
     .genre-pill { padding: 0.38rem 1rem; border-radius: 100px; font-size: 0.77rem; font-weight: 300; letter-spacing: 0.05em; border: 1px solid rgba(138,170,122,0.25); color: rgba(245,240,232,0.62); transition: background 0.2s, color 0.2s; cursor: default; }
@@ -200,6 +218,7 @@
       .consulting-boxes { grid-template-columns: 1fr; }
       .consulting-layout { grid-template-columns: 1fr; }
       .music-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .music-photo { display: none; }
       .marine-bg-shape { display: none; }
       .marine-timeline { grid-template-columns: 1fr; }
       .hero-inner { flex-direction: column-reverse; align-items: flex-start; padding: 0 1.4rem; gap: 2rem; }
@@ -468,7 +487,8 @@
         <div class="sub-header-text"><h3>Academic Qualifications</h3><p>University of Auckland</p></div>
       </div>
       <div class="science-grid">
-        <div class="sci-card"><div class="sci-card-icon">🎓</div><p class="sci-meta">University of Auckland · 2019</p><h3>BSc Hons — First Class</h3><p>Thesis: <em>Community, Place and Greenways — Social Perspectives and Meaning of Place in Green Transport Infrastructure.</em> GPA 8.0 / 9.</p></div>
+        <div class="sci-card"><div class="sci-card-icon">🔬</div><p class="sci-meta">University of Auckland · 2021–2022</p><h3>PhD Proposal</h3><p><em>How do science, society, and policy overlap in the use of wastewater-based epidemiology to monitor and reduce drug-related harm in Aotearoa New Zealand?</em> PhD proposal pursued for 1 year, but eventually abandoned due to a lack of funding available during Covid-19.</p></div>
+        <div class="sci-card"><div class="sci-card-icon">🎓</div><p class="sci-meta">University of Auckland · 2019</p><h3>BSc Hons — First Class</h3><p><em>Community, Place and Greenways — Social Perspectives and Meaning of Place in Green Transport Infrastructure.</em> An exploration of how different users of urban infrastructure relate and give meaning to these spaces. GPA 8.0 / 9.</p></div>
         <div class="sci-card"><div class="sci-card-icon">🌊</div><p class="sci-meta">University of Auckland · 2015–2018</p><h3>BSc — Marine &amp; Environmental Science</h3><p>GPA 6.8. First in Course, Marine 202. Runner-up, Budding Marine Conservation Steward Award (Conservation International).</p></div>
       </div>
     </div>
@@ -518,7 +538,13 @@
 <section id="music">
   <div class="music-bg"></div>
   <div class="section-inner" style="position:relative;z-index:1;">
-    <div class="reveal">
+    <div class="reveal music-header">
+      <img 
+        src="https://raw.githubusercontent.com/bopde/mansfield/main/mid%20jam.jpg" 
+        alt="Ben playing saxophone"
+        class="music-photo"
+        crossorigin="anonymous"
+      />
       <span class="section-tag">Music</span>
       <h2 class="section-title">Sound &amp;<br>Performance</h2>
       <p class="section-intro">Multi-instrumentalist and live music performer. Small time musician on the lookout for more people to jam with.</p>
@@ -526,13 +552,14 @@
     <div class="music-layout">
       <div class="instruments-showcase reveal">
         <div class="instr-card"><span class="instr-icon">🎷</span><div class="instr-body"><h4>Saxophone</h4><p>Primary instrument. From jazz standards to improvised sessions and live performance.</p></div></div>
-        <div class="instr-card"><span class="instr-icon">🎸</span><div class="instr-body"><h4>Guitar</h4><p>Acoustic and electric. Songwriting, solo, and accompaniment.</p></div></div>
-        <div class="instr-card"><span class="instr-icon">🎹</span><div class="instr-body"><h4>Piano</h4><p>Musical theory, jazz harmony, and light composition.</p></div></div>
+        <div class="instr-card"><span class="instr-icon">🎸</span><div class="instr-body"><h4>Guitar</h4><p>Live looping and acoustic singer / songwriter.</p></div></div>
+        <div class="instr-card"><span class="instr-icon">🎹</span><div class="instr-body"><h4>Piano</h4><p>Musical theory, improvisation, and light composition.</p></div></div>
       </div>
       <div class="music-context reveal">
         <span class="genre-label">Genre Interests</span>
-          <div class="genre-pills"><span class="genre-pill">Jazz</span><span class="genre-pill">Funk</span><span class="genre-pill">Blues</span><span class="genre-pill">RnB</span><span class="genre-pill">Afrobeats</span><span class="genre-pill">Latin</span><span class="genre-pill">Classical</span>
-          </div>
+        <div class="genre-pills">
+          <span class="genre-pill">Jazz</span><span class="genre-pill">Funk</span><span class="genre-pill">Blues</span><span class="genre-pill">RnB</span><span class="genre-pill">Afrobeats</span><span class="genre-pill">Latin</span><span class="genre-pill">Classical</span>
+        </div>
         <span class="genre-label" style="margin-top:1.4rem;">Key Influences</span>
           <!--
             Influences ordered by stylistic relatedness:
@@ -570,7 +597,7 @@
       <p class="section-intro">Whether it's a conversation about growing your non-profit, drafting reponsive policy, fixing your yacht, an offshore adventure, or a musical collaboration — I'd love to hear from you.</p>
     </div>
     <div class="contact-grid reveal">
-      <a href="mailto:ben@mansfield.consulting" class="contact-chip"><span>✉</span> Ben@Mansfield.consulting</a>
+      <a href="mailto:Ben@Mansfield.consulting" class="contact-chip"><span>✉</span>Ben@Mansfield.consulting</span></a>
       <a href="tel:+64226460483" class="contact-chip"><span>📱</span> +64 22 646 0483</a>
       <a href="https://linkedin.com/in/b-mansfield" class="contact-chip" target="_blank" rel="noopener"><span style="font-weight:700;">in</span> LinkedIn</a>
     </div>
