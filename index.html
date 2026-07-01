@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ben Mansfield</title>
+  <title>Mansfield Consulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
@@ -18,7 +18,6 @@
       --moss:      #3b5c3a;
       --fern:      #8aaa7a;
       --sand:      #d4b896;
-      --driftwood: #a07850;
       --cream:     #f5f0e8;
       --white:     #fbfaf8;
       --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -27,483 +26,279 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--deep); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(7,28,46,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(74,144,184,0.15); }
-    .nav-logo { font-family: var(--font-display); font-size: 1.25rem; font-weight: 300; letter-spacing: 0.12em; color: var(--foam); text-decoration: none; text-transform: uppercase; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(7,28,46,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(74,144,184,0.15); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 300; letter-spacing: 0.1em; color: var(--foam); text-decoration: none; text-transform: uppercase; }
+    .nav-logo em { font-style: italic; color: var(--sky); font-weight: 300; }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(214,234,248,0.65); text-decoration: none; position: relative; transition: color 0.25s; }
+    .nav-links a { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(214,234,248,0.6); text-decoration: none; position: relative; transition: color 0.25s; }
     .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--fern); transition: width 0.3s ease; }
     .nav-links a:hover, .nav-links a.active { color: var(--foam); }
     .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    #hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--deep); }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(26,82,118,0.55) 0%, transparent 65%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(61,92,58,0.4) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 90% 10%, rgba(74,144,184,0.2) 0%, transparent 55%); }
-    .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.18; animation: drift 20s ease-in-out infinite alternate; }
-    .orb-1 { width: 500px; height: 500px; background: var(--sky); top: -100px; right: -80px; animation-duration: 22s; }
-    .orb-2 { width: 340px; height: 340px; background: var(--sage); bottom: 80px; left: -60px; animation-duration: 18s; animation-delay: -8s; }
-    .orb-3 { width: 260px; height: 260px; background: var(--sand); top: 50%; left: 38%; animation-duration: 25s; animation-delay: -4s; }
-    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,30px) scale(1.08); } }
-    /* FIX 4: left-anchored layout + larger photo */
-    .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1100px; padding: 0 3rem; margin: 5rem auto 0; display: flex; align-items: center; justify-content: flex-start; gap: 4rem; }
-    .hero-content { max-width: 520px; flex-shrink: 0; }
-    .hero-eyebrow { font-size: 0.73rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fern); margin-bottom: 1.2rem; animation: fadeUp 1.1s 0.15s ease both; }
-    .hero-name { font-family: var(--font-display); font-size: clamp(3.6rem, 7vw, 7rem); font-weight: 300; line-height: 1.0; color: var(--foam); letter-spacing: -0.01em; margin-bottom: 1.6rem; animation: fadeUp 1.1s 0.25s ease both; }
-    .hero-name em { font-style: italic; color: var(--sky); }
-    .hero-tagline { font-size: 1.05rem; font-weight: 300; color: rgba(214,234,248,0.68); max-width: 480px; line-height: 1.78; margin-bottom: 2.6rem; animation: fadeUp 1.1s 0.38s ease both; }
-    .hero-cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; animation: fadeUp 1.1s 0.5s ease both; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-photo-wrap { flex-shrink: 0; position: relative; animation: fadeUp 1.1s 0.4s ease both; }
-    .hero-photo-wrap::before { content: ''; position: absolute; inset: -14px; border-radius: 50%; background: conic-gradient(from 0deg, var(--fern), var(--sky), var(--sage), var(--fern)); opacity: 0.3; filter: blur(18px); animation: drift 18s ease-in-out infinite alternate; }
-    .hero-photo { width: 320px; height: 320px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid rgba(74,144,184,0.4); position: relative; z-index: 1; }
-    .hero-wave { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; overflow: hidden; }
-    .hero-wave svg { width: 200%; height: 100%; animation: waveFlow 14s linear infinite; }
-    @keyframes waveFlow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .btn-primary { display: inline-block; padding: 0.85rem 2.2rem; background: var(--sage); color: var(--white); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.25s, transform 0.2s; }
-    .btn-primary:hover { background: var(--moss); transform: translateY(-2px); }
-    .btn-outline { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid rgba(74,144,184,0.45); color: var(--foam); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.25s, background 0.25s, transform 0.2s; }
-    .btn-outline:hover { border-color: var(--sky); background: rgba(74,144,184,0.1); transform: translateY(-2px); }
+
+    /* SHARED */
     section { padding: 7rem 3rem; position: relative; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
     .section-tag { display: inline-block; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1.2rem; padding: 0.28rem 0.85rem; border-radius: 2px; }
     .section-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.2rem; }
-    .section-intro { font-size: 1.0rem; font-weight: 300; line-height: 1.8; max-width: 620px; margin-bottom: 3.5rem; opacity: 0.78; }
+    .section-intro { font-size: 1rem; font-weight: 300; line-height: 1.8; max-width: 640px; margin-bottom: 3.5rem; opacity: 0.78; }
     .wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
     .wave-divider svg { display: block; }
-    .sub-section { margin-bottom: 3.5rem; }
-    .sub-section:last-child { margin-bottom: 0; }
-    .sub-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.8rem; border-bottom: 2px solid rgba(13,46,74,0.12); }
-    .sub-header-num { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: rgba(13,46,74,0.15); line-height: 1; flex-shrink: 0; width: 2.4rem; }
-    .sub-header-text h3 { font-family: var(--font-display); font-size: 1.55rem; font-weight: 400; color: var(--ocean); line-height: 1.1; }
-    .sub-header-text p { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-top: 0.18rem; }
-    .sub-header-dark { border-bottom-color: rgba(74,144,184,0.22); }
-    .sub-header-dark .sub-header-num { color: rgba(74,144,184,0.22); }
-    .sub-header-dark .sub-header-text h3 { color: var(--foam); }
-    .sub-header-dark .sub-header-text p { color: var(--sky); }
-    /* CONSULTING */
-    #consulting { background: var(--cream); }
-    #consulting .section-tag { background: rgba(13,46,74,0.1); color: var(--ocean); }
-    #consulting .section-title { color: var(--ocean); }
+    .btn-primary { display: inline-block; padding: 0.85rem 2.2rem; background: var(--sage); color: var(--white); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.25s, transform 0.2s; }
+    .btn-primary:hover { background: var(--moss); transform: translateY(-2px); }
+    .btn-outline { display: inline-block; padding: 0.85rem 2.2rem; border: 1px solid rgba(74,144,184,0.45); color: var(--foam); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.25s, background 0.25s, transform 0.2s; }
+    .btn-outline:hover { border-color: var(--sky); background: rgba(74,144,184,0.1); transform: translateY(-2px); }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    .consulting-layout { display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start; }
+    /* HERO */
+    #hero { min-height: 100vh; display: flex; align-items: center; background: var(--deep); position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(26,82,118,0.45) 0%, transparent 65%), radial-gradient(ellipse 50% 70% at 5% 90%, rgba(61,92,58,0.35) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 95% 5%, rgba(74,144,184,0.18) 0%, transparent 55%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.14; animation: drift 22s ease-in-out infinite alternate; }
+    .orb-1 { width: 600px; height: 600px; background: var(--sky); top: -150px; right: -100px; animation-duration: 24s; }
+    .orb-2 { width: 380px; height: 380px; background: var(--sage); bottom: 60px; left: -80px; animation-duration: 19s; animation-delay: -9s; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,28px) scale(1.07); } }
+    .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1100px; padding: 0 3rem; margin: 5rem auto 0; }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fern); margin-bottom: 1.4rem; animation: fadeUp 1.1s 0.1s ease both; }
+    .hero-wordmark { font-family: var(--font-display); font-size: clamp(4rem, 8vw, 8.5rem); font-weight: 300; line-height: 0.95; color: var(--foam); letter-spacing: -0.02em; margin-bottom: 0.15em; animation: fadeUp 1.1s 0.2s ease both; }
+    .hero-wordmark em { font-style: italic; color: var(--sky); display: block; }
+    .hero-tagline { font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 300; color: rgba(214,234,248,0.7); max-width: 560px; line-height: 1.65; margin-bottom: 0.7rem; animation: fadeUp 1.1s 0.35s ease both; }
+    .hero-location { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(214,234,248,0.35); margin-bottom: 2.8rem; animation: fadeUp 1.1s 0.42s ease both; }
+    .hero-cta-row { display: flex; gap: 1.2rem; flex-wrap: wrap; animation: fadeUp 1.1s 0.5s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-wave { position: absolute; bottom: 0; left: 0; right: 0; height: 180px; overflow: hidden; }
+    .hero-wave svg { width: 200%; height: 100%; animation: waveFlow 14s linear infinite; }
+    @keyframes waveFlow { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* Sticky stats panel */
-    .consulting-stats { position: sticky; top: 6rem; display: flex; flex-direction: column; gap: 1rem; }
-    .stat-card { background: var(--white); border: 1px solid rgba(13,46,74,0.09); border-radius: 4px; padding: 1.5rem 1.7rem; transition: box-shadow 0.25s, transform 0.2s; }
-    .stat-card:hover { box-shadow: 0 8px 28px rgba(13,46,74,0.09); transform: translateY(-2px); }
-    .stat-card-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--ocean); line-height: 1; margin-bottom: 0.25rem; }
-    .stat-card-num em { font-style: italic; color: var(--sky); }
-    .stat-card-label { font-size: 0.75rem; font-weight: 500; color: var(--sage); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.35rem; }
-    .stat-card-desc { font-size: 0.79rem; color: #777; line-height: 1.6; }
-    .stat-card-dark { background: var(--ocean); border-color: transparent; }
-    .stat-card-dark .stat-card-num { color: var(--sky); }
-    .stat-card-dark .stat-card-label { color: rgba(214,234,248,0.5); }
-    .stat-card-dark .stat-card-desc { color: rgba(214,234,248,0.4); }
-    .org-group { margin-bottom: 1.8rem; }
-    .org-group:last-child { margin-bottom: 0; }
-    .org-group-header { display: flex; align-items: baseline; gap: 0.7rem; padding: 0.65rem 1rem; background: rgba(13,46,74,0.06); border-left: 3px solid var(--sky); border-radius: 0 2px 2px 0; }
-    .org-group-header h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--ocean); }
-    .org-group-header span { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-left: auto; }
-    .nested-roles { padding-left: 1rem; border-left: 1px solid rgba(13,46,74,0.1); }
-    .nested-role { padding: 1.1rem 0 1.1rem 1rem; border-bottom: 1px solid rgba(13,46,74,0.06); position: relative; }
-    .nested-role:last-child { border-bottom: none; }
-    .nested-role::before { content: ''; position: absolute; left: -1px; top: 1.55rem; width: 8px; height: 1px; background: rgba(13,46,74,0.18); }
-    .tl-role { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--ocean); margin-bottom: 0.15rem; }
-    .tl-date { font-size: 0.72rem; color: #aaa; margin-bottom: 0.7rem; }
-    .tl-body { font-size: 0.87rem; color: #555; line-height: 1.72; }
-    .tl-body ul { margin-top: 0.5rem; padding-left: 1.1rem; }
-    .tl-body ul li { margin-bottom: 0.3rem; }
-    .nested-role .tl-role { font-size: 1.05rem; }
-    /* FIX 2: 3-col grid for boxes at bottom of consulting */
-    .consulting-boxes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem; margin-top: 3.5rem; }
-    .sidebar-block { background: var(--white); border: 1px solid rgba(13,46,74,0.09); border-radius: 4px; padding: 2rem; transition: box-shadow 0.25s; }
-    .sidebar-block:hover { box-shadow: 0 10px 30px rgba(13,46,74,0.08); }
-    .sidebar-block h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--ocean); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(13,46,74,0.07); }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-tag { font-size: 0.75rem; padding: 0.28rem 0.72rem; border-radius: 2px; background: rgba(13,46,74,0.06); color: var(--ocean); border: 1px solid rgba(13,46,74,0.09); }
-    .award-item { display: flex; align-items: flex-start; gap: 0.9rem; margin-bottom: 1rem; }
-    .award-item:last-child { margin-bottom: 0; }
-    .award-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .award-body h4 { font-size: 0.87rem; font-weight: 500; color: var(--ocean); margin-bottom: 0.12rem; }
-    .award-body p { font-size: 0.79rem; color: #777; line-height: 1.55; }
-    /* SCIENCE */
-    #science { background: var(--ocean); }
-    #science .section-tag { background: rgba(74,144,184,0.18); color: var(--sky); }
-    #science .section-title { color: var(--foam); }
-    #science .section-intro { color: rgba(214,234,248,0.68); }
-    .science-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.8rem; margin-bottom: 0; }
-    .sci-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(74,144,184,0.2); border-radius: 4px; padding: 2.2rem; transition: background 0.25s, border-color 0.25s, transform 0.25s; }
-    .sci-card:hover { background: rgba(74,144,184,0.1); border-color: rgba(74,144,184,0.45); transform: translateY(-4px); }
-    .sci-card-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
-    .sci-meta { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.6rem; }
-    .sci-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--foam); margin-bottom: 0.6rem; }
-    .sci-card p { font-size: 0.87rem; color: rgba(214,234,248,0.58); line-height: 1.7; }
-    .comms-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.6rem; }
-    .comm-chip { display: flex; align-items: flex-start; gap: 0.9rem; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(74,144,184,0.15); border-radius: 4px; transition: background 0.22s, border-color 0.22s; }
-    .comm-chip:hover { background: rgba(74,144,184,0.08); border-color: rgba(74,144,184,0.35); }
-    .comm-chip-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .comm-chip-text h4 { font-size: 0.87rem; font-weight: 500; color: var(--foam); margin-bottom: 0.18rem; }
-    .comm-chip-text p { font-size: 0.77rem; color: rgba(214,234,248,0.45); line-height: 1.55; }
-    /* MARINE — FIX 3: bg shape behind content */
-    #marine { background: var(--white); position: relative; }
-    .marine-bg-shape { position: absolute; top: 0; right: 0; width: 42%; height: 100%; background: linear-gradient(135deg, var(--foam) 0%, rgba(26,82,118,0.05) 100%); clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%); pointer-events: none; z-index: 0; }
-    #marine .section-inner { position: relative; z-index: 1; }
-    #marine .section-tag { background: rgba(26,82,118,0.1); color: var(--tide); }
-    #marine .section-title { color: var(--ocean); }
-    .marine-timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; margin-bottom: 4rem; }
-    .mtl-item { padding-bottom: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(13,46,74,0.07); }
-    .mtl-item:nth-last-child(-n+2) { border-bottom: none; margin-bottom: 0; }
-    .mtl-role { font-family: var(--font-display); font-size: 1.08rem; font-weight: 400; color: var(--ocean); }
-    .mtl-org { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; color: var(--tide); text-transform: uppercase; }
-    .mtl-date { font-size: 0.72rem; color: #aaa; margin: 0.1rem 0 0.55rem; }
-    .mtl-body { font-size: 0.86rem; color: #555; line-height: 1.68; }
-    .marine-certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; }
-    .cert-block { background: var(--cream); border-radius: 4px; padding: 1.8rem; border: 1px solid rgba(13,46,74,0.07); }
-    .cert-block h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 400; color: var(--ocean); margin-bottom: 1rem; padding-bottom: 0.55rem; border-bottom: 1px solid rgba(13,46,74,0.08); }
-    .cert-list { list-style: none; }
-    .cert-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 0.38rem 0; border-bottom: 1px solid rgba(13,46,74,0.05); font-size: 0.83rem; color: var(--ocean); }
-    .cert-list li:last-child { border-bottom: none; }
-    .cert-year { font-size: 0.7rem; color: #aaa; flex-shrink: 0; margin-left: 0.8rem; }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat-item { text-align: center; padding: 1.2rem; background: var(--ocean); border-radius: 4px; }
-    .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--sky); line-height: 1; }
-    .stat-label { font-size: 0.72rem; font-weight: 300; color: rgba(214,234,248,0.5); margin-top: 0.28rem; letter-spacing: 0.05em; }
-    /* MUSIC */
-    #music { background: var(--deep); overflow: hidden; }
-    .music-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 80% 60%, rgba(93,122,90,0.22) 0%, transparent 60%), radial-gradient(ellipse 50% 70% at 20% 30%, rgba(26,82,118,0.3) 0%, transparent 60%); pointer-events: none; }
-    #music .section-tag { background: rgba(138,170,122,0.18); color: var(--fern); }
-    #music .section-title { color: var(--cream); }
-    #music .section-intro { color: rgba(245,240,232,0.58); max-width: 620px; }
+    /* ABOUT */
+    #about { background: var(--cream); }
+    #about .section-tag { background: rgba(13,46,74,0.09); color: var(--ocean); }
+    #about .section-title { color: var(--ocean); }
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 4rem; }
+    .about-lead { font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; line-height: 1.4; color: var(--ocean); margin-bottom: 1.6rem; }
+    .about-body { font-size: 0.95rem; font-weight: 300; line-height: 1.85; color: #444; }
+    .about-body p + p { margin-top: 1em; }
+    .client-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .client-card { background: var(--white); border: 1px solid rgba(13,46,74,0.09); border-radius: 4px; padding: 2rem 1.8rem; transition: box-shadow 0.25s, transform 0.2s; }
+    .client-card:hover { box-shadow: 0 8px 28px rgba(13,46,74,0.09); transform: translateY(-3px); }
+    .client-icon { font-size: 1.6rem; display: block; margin-bottom: 0.9rem; }
+    .client-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--ocean); margin-bottom: 0.6rem; }
+    .client-card p { font-size: 0.85rem; color: #666; line-height: 1.65; }
+    .client-type-tag { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 2px; margin-bottom: 0.8rem; }
+    .tag-govt { background: rgba(13,46,74,0.09); color: var(--ocean); }
+    .tag-nonprofit { background: rgba(93,122,90,0.12); color: var(--moss); }
+    .tag-community { background: rgba(26,82,118,0.1); color: var(--tide); }
 
-    /* Floating performance photo */
-    .music-header { position: relative; }
-    .music-photo {
-      position: absolute;
-      top: -2rem;
-      right: 8rem;
-      width: 320px;
-      height: 400px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 8px;
-      opacity: 0.8;
-      z-index: 0;
-      mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.6) 60%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(0,0,0,0.95) 20%, rgba(0,0,0,0.6) 60%, transparent 100%);
-      animation: fadeUp 1.2s 0.3s ease both;
-    }
-    .music-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .instruments-showcase { display: flex; flex-direction: column; gap: 1rem; }
-    .instr-card { display: flex; align-items: center; gap: 1.4rem; padding: 1.4rem 1.6rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(138,170,122,0.15); border-radius: 4px; transition: background 0.25s, border-color 0.25s, transform 0.2s; }
-    .instr-card:hover { background: rgba(138,170,122,0.1); border-color: rgba(138,170,122,0.38); transform: translateX(5px); }
-    .instr-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .instr-body h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.18rem; }
-    .instr-body p { font-size: 0.81rem; color: rgba(245,240,232,0.45); line-height: 1.55; }
-    .music-context { position: relative; z-index: 1; padding-top: 2rem; }
-    .genre-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fern); margin-bottom: 0.9rem; display: block; }
-    .genre-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-    .genre-pill { padding: 0.38rem 1rem; border-radius: 100px; font-size: 0.77rem; font-weight: 300; letter-spacing: 0.05em; border: 1px solid rgba(138,170,122,0.25); color: rgba(245,240,232,0.62); transition: background 0.2s, color 0.2s; cursor: default; }
-    .genre-pill:hover { background: rgba(138,170,122,0.15); color: var(--fern); }
+    /* SERVICES */
+    #services { background: var(--ocean); }
+    #services .section-tag { background: rgba(74,144,184,0.18); color: var(--sky); }
+    #services .section-title { color: var(--foam); }
+    #services .section-intro { color: rgba(214,234,248,0.65); }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin-bottom: 4rem; }
+    .service-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(74,144,184,0.2); border-radius: 4px; padding: 2.4rem; transition: background 0.25s, border-color 0.25s, transform 0.25s; }
+    .service-card:hover { background: rgba(74,144,184,0.1); border-color: rgba(74,144,184,0.4); transform: translateY(-4px); }
+    .service-num { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: rgba(74,144,184,0.2); line-height: 1; margin-bottom: 1rem; }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.45rem; font-weight: 400; color: var(--foam); margin-bottom: 0.7rem; }
+    .service-card p { font-size: 0.87rem; color: rgba(214,234,248,0.55); line-height: 1.72; }
+    .sectors-block { border-top: 1px solid rgba(74,144,184,0.18); padding-top: 2.8rem; }
+    .sectors-block h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(214,234,248,0.45); margin-bottom: 1.2rem; }
+    .sector-tags { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .sector-tag { padding: 0.45rem 1.1rem; border: 1px solid rgba(74,144,184,0.28); border-radius: 100px; font-size: 0.8rem; font-weight: 300; color: rgba(214,234,248,0.65); letter-spacing: 0.03em; transition: border-color 0.2s, color 0.2s; }
+    .sector-tag:hover { border-color: var(--sky); color: var(--foam); }
+
+    /* WORK */
+    #work { background: var(--white); }
+    #work .section-tag { background: rgba(13,46,74,0.08); color: var(--ocean); }
+    #work .section-title { color: var(--ocean); }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+    .work-card { background: var(--cream); border: 1px solid rgba(13,46,74,0.07); border-radius: 4px; padding: 2.2rem; display: flex; flex-direction: column; gap: 1rem; transition: box-shadow 0.25s, transform 0.2s; }
+    .work-card:hover { box-shadow: 0 10px 32px rgba(13,46,74,0.1); transform: translateY(-4px); }
+    .work-card-header { display: flex; flex-direction: column; gap: 0.4rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(13,46,74,0.08); }
+    .work-client { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); }
+    .work-card h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--ocean); line-height: 1.2; }
+    .work-card p { font-size: 0.86rem; color: #555; line-height: 1.7; flex: 1; }
+    .work-stats { display: flex; gap: 1.2rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid rgba(13,46,74,0.07); margin-top: auto; }
+    .work-stat-item { display: flex; flex-direction: column; }
+    .stat-n { font-family: var(--font-display); font-size: 1.7rem; font-weight: 300; color: var(--ocean); line-height: 1; }
+    .stat-n em { font-style: normal; font-size: 0.8em; color: var(--sky); }
+    .stat-l { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-top: 0.15rem; }
+
+    /* PEOPLE */
+    #people { background: var(--deep); }
+    #people .section-tag { background: rgba(138,170,122,0.15); color: var(--fern); }
+    #people .section-title { color: var(--foam); }
+    #people .section-intro { color: rgba(214,234,248,0.6); }
+    .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .person-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(74,144,184,0.18); border-radius: 4px; padding: 2.4rem; display: flex; gap: 2rem; align-items: flex-start; transition: background 0.25s, border-color 0.25s; }
+    .person-card:hover { background: rgba(74,144,184,0.07); border-color: rgba(74,144,184,0.32); }
+    .person-card--ghost { border-style: dashed; border-color: rgba(138,170,122,0.25); }
+    .person-card--ghost:hover { background: rgba(138,170,122,0.05); border-color: rgba(138,170,122,0.4); }
+    .person-photo-wrap { flex-shrink: 0; }
+    .person-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid rgba(74,144,184,0.35); }
+    .person-photo-placeholder { width: 100px; height: 100px; border-radius: 50%; background: rgba(138,170,122,0.1); border: 2px dashed rgba(138,170,122,0.3); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: rgba(138,170,122,0.4); font-weight: 300; }
+    .person-role { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fern); margin-bottom: 0.3rem; }
+    .person-name { font-family: var(--font-display); font-size: 1.55rem; font-weight: 400; color: var(--foam); margin-bottom: 0.8rem; line-height: 1.1; }
+    .person-bio { font-size: 0.85rem; color: rgba(214,234,248,0.5); line-height: 1.72; margin-bottom: 1.1rem; }
+    .person-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.2rem; }
+    .person-tag { font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 2px; background: rgba(74,144,184,0.1); color: rgba(214,234,248,0.55); border: 1px solid rgba(74,144,184,0.18); }
+    .person-link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); text-decoration: none; transition: color 0.2s; }
+    .person-link:hover { color: var(--foam); }
+    .recruiting-badge { display: inline-block; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fern); background: rgba(138,170,122,0.12); border: 1px solid rgba(138,170,122,0.28); padding: 0.2rem 0.55rem; border-radius: 2px; margin-bottom: 0.3rem; }
+
     /* CONTACT */
     #contact { background: var(--cream); text-align: center; }
     #contact .section-tag { background: rgba(13,46,74,0.09); color: var(--ocean); }
     #contact .section-title { color: var(--ocean); }
-    #contact .section-intro { margin: 0 auto 3rem; text-align: center; }
+    #contact .section-intro { margin: 0 auto 3rem; }
     .contact-grid { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
     .contact-chip { display: flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.8rem; background: var(--white); border: 1px solid rgba(13,46,74,0.1); border-radius: 100px; font-size: 0.85rem; color: var(--ocean); text-decoration: none; transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s; }
-    .contact-chip:hover { background: var(--ocean); color: var(--foam); border-color: var(--ocean); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(13,46,74,0.18); }
-    footer { background: var(--deep); color: rgba(214,234,248,0.35); text-align: center; padding: 2.2rem 3rem; font-size: 0.75rem; letter-spacing: 0.07em; }
+    .contact-chip:hover { background: var(--ocean); color: var(--foam); border-color: var(--ocean); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(13,46,74,0.16); }
+    .contact-chip--static:hover { background: var(--white); color: var(--ocean); border-color: rgba(13,46,74,0.1); transform: none; box-shadow: none; cursor: default; }
+
+    footer { background: var(--deep); color: rgba(214,234,248,0.3); text-align: center; padding: 2.2rem 3rem; font-size: 0.75rem; letter-spacing: 0.07em; }
     footer a { color: var(--sky); text-decoration: none; }
     footer a:hover { color: var(--foam); }
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 860px) {
-      .consulting-boxes { grid-template-columns: 1fr; }
-      .consulting-layout { grid-template-columns: 1fr; }
-      .music-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .music-photo { display: none; }
-      .marine-bg-shape { display: none; }
-      .marine-timeline { grid-template-columns: 1fr; }
-      .hero-inner { flex-direction: column-reverse; align-items: flex-start; padding: 0 1.4rem; gap: 2rem; }
-      .hero-photo { width: 200px; height: 200px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .client-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr; }
+      .people-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       nav { padding: 1rem 1.4rem; }
       .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.65rem; letter-spacing: 0.1em; }
+      .nav-links a { font-size: 0.65rem; }
       section { padding: 4.5rem 1.4rem; }
+      .hero-inner { padding: 0 1.4rem; }
+      .person-card { flex-direction: column; gap: 1.4rem; }
     }
   </style>
 </head>
 <body>
 
 <nav id="main-nav">
-  <a href="#hero" class="nav-logo">Ben Mansfield</a>
+  <a href="#hero" class="nav-logo">Mansfield <em>Consulting</em></a>
   <ul class="nav-links">
-    <li><a href="#consulting">Consulting</a></li>
-    <li><a href="#science">Science</a></li>
-    <li><a href="#marine">Marine</a></li>
-    <li><a href="#music">Music</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">What We Do</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#people">Our People</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
   <div class="hero-inner">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Programme Manager · Behavioural Scientist · Marine Engineer · Musician</p>
-      <h1 class="hero-name">Ben<br><em>Mansfield</em></h1>
-      <p class="hero-tagline">Passionate about the oceans, urban environments, and the creative arts.</p>
-      <div class="hero-cta-row">
-        <a href="#consulting" class="btn-primary">Explore Work</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <img src="https://raw.githubusercontent.com/bopde/mansfield/main/linkedin.jpg" alt="Ben Mansfield" class="hero-photo" crossorigin="anonymous"/>
+    <p class="hero-eyebrow">Programme Management · Marine, Environment &amp; Urban</p>
+    <h1 class="hero-wordmark">Mansfield<em>Consulting</em></h1>
+    <p class="hero-tagline">We help good programmes get funded,<br>get built, and keep running.</p>
+    <p class="hero-location">Auckland &amp; Wellington · Est. 2026</p>
+    <div class="hero-cta-row">
+      <a href="#work" class="btn-primary">Our Work</a>
+      <a href="#contact" class="btn-outline">Let's Talk</a>
     </div>
   </div>
   <div class="hero-wave">
-    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,100 C180,170 360,30 540,100 C720,170 900,30 1080,100 C1260,170 1440,30 1440,100 L1440,200 L0,200 Z" fill="rgba(245,240,232,0.06)"/>
-      <path d="M0,140 C200,90 400,190 600,140 C800,90 1000,190 1200,140 C1340,110 1400,155 1440,140 L1440,200 L0,200 Z" fill="rgba(245,240,232,0.04)"/>
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,90 C180,150 360,30 540,90 C720,150 900,30 1080,90 C1260,150 1440,30 1440,90 L1440,180 L0,180 Z" fill="rgba(245,240,232,0.05)"/>
+      <path d="M0,130 C200,80 400,170 600,130 C800,90 1000,170 1200,130 C1340,105 1400,148 1440,130 L1440,180 L0,180 Z" fill="rgba(245,240,232,0.03)"/>
     </svg>
   </div>
 </section>
 
 <span class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--deep);"><path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="var(--cream)"/></svg></span>
 
-<section id="consulting">
+<!-- ABOUT / WHO WE ARE -->
+<section id="about">
   <div class="section-inner">
     <div class="reveal">
-      <span class="section-tag">Consulting &amp; Programme Management</span>
-      <h2 class="section-title">Strategy, Delivery<br>&amp; Stakeholder Leadership</h2>
-      <p class="section-intro">From a world-first network of community bike spaces to city-wide behavioural change programmes — taking complex, multi-stakeholder projects from idea through to lasting impact.</p>
-    </div>
-
-    <div class="consulting-layout">
-    <!-- LEFT: role sub-sections -->
-    <div>
-
-    <!-- 1. Programme Management -->
-    <div class="sub-section reveal">
-      <div class="sub-header">
-        <span class="sub-header-num">1</span>
-        <div class="sub-header-text"><h3>Programme Management</h3><p>End-to-end project delivery</p></div>
-      </div>
-      <div class="org-group">
-        <div class="org-group-header"><h4>Auckland Transport</h4><span>Auckland, NZ</span></div>
-        <div class="nested-roles">
-          <div class="nested-role">
-            <h3 class="tl-role">Senior Programme Manager &nbsp;<span style="font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--fern);background:rgba(93,122,90,0.12);border:1px solid rgba(93,122,90,0.3);padding:0.15rem 0.55rem;border-radius:2px;vertical-align:middle;">Current</span></h3>
-            <p class="tl-date">February 2026 – Present</p>
-            <div class="tl-body">
-              <p>Led behavioural change programmes accompanying new infrastructure in Onehunga, as well as short-term management of the Bike Hubs Network.</p>
-              <ul>
-                <li>Developed the Human Infrastructure of Cycling programme for Onehunga, developing initiatives designed to address social, cultural, and individual barriers to cycling across a three-year programme.</li>
-                <li>Oversaw the Bike Hubs programme including a prioritisation of physical works upgrades, contract management, and the delivery of a new site in Maungawhau.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="nested-role">
-            <h3 class="tl-role">Programme Manager — Bike Hubs</h3>
-            <p class="tl-date">May 2022 – September 2024</p>
-            <div class="tl-body">
-              <p>Synthesised and delivered the world's first network of free, community-run bike repair shops — growing from four to 14 locations across Auckland on a $2 million budget.</p>
-              <ul>
-                <li>Co-designed the Bike Hub operating model with hundreds of stakeholders, from elected members to community and cultural groups.</li>
-                <li>Led procurement, detailed design, landowner consents, construction, and programme integration.</li>
-                <li>The network now reaches 50,000 Aucklanders per year.</li>
-              </ul>
-            </div>
+      <span class="section-tag">Who We Are</span>
+      <div class="about-layout">
+        <div>
+          <h2 class="section-title">Built to move<br>programmes forward.</h2>
+          <p class="about-lead">We help good organisations do more — with what they've got, and with what they're building.</p>
+          <div class="about-body">
+            <p>Most good programmes stall somewhere between strategy and delivery. We close that gap — working across stakeholders, systems, and sectors to keep things moving.</p>
+            <p>Whether it's growing an established service, launching something new, or rescuing a programme in trouble, we bring the strategic clarity and hands-on drive to make it happen.</p>
+            <p>We work across government, non-profit, and community sectors — anywhere that ambitious people are trying to build things that matter.</p>
           </div>
         </div>
-      </div>
-      <div class="org-group">
-        <div class="org-group-header"><h4>Ecological Associates</h4><span>Auckland, NZ</span></div>
-        <div class="nested-roles">
-          <div class="nested-role">
-            <h3 class="tl-role">Project Lead</h3>
-            <p class="tl-date">April – November 2019</p>
-            <div class="tl-body">
-              <p>Led the delivery of multiple doorstep engagement projects to inform householders about their travel and energy choices on behalf of the local council.</p>
-              <ul>
-                <li>Coordinated daily operations across nearly 2,000 households and 17 team members.</li>
-                <li>Researched and developed new projects with an explicit focus on their business case and social impacts.</li>
-                <li>Maintained and improved backend systems for accounting, performance metrics, and database analysis.</li>
-              </ul>
+        <div>
+          <div class="client-grid">
+            <div class="client-card">
+              <span class="client-icon">🏛️</span>
+              <span class="client-type-tag tag-govt">Government</span>
+              <h3>Agencies &amp; Councils</h3>
+              <p>Programme growth, infrastructure delivery, and behavioural change at scale.</p>
+            </div>
+            <div class="client-card">
+              <span class="client-icon">🌱</span>
+              <span class="client-type-tag tag-nonprofit">Non-profit</span>
+              <h3>Trusts &amp; Charities</h3>
+              <p>Fundraising, operations, and scaling community services with limited resource.</p>
+            </div>
+            <div class="client-card">
+              <span class="client-icon">🤝</span>
+              <span class="client-type-tag tag-community">Community</span>
+              <h3>Groups &amp; Collectives</h3>
+              <p>Tactical delivery and engagement that reaches the people who matter.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- 2. Growth & Delivery -->
-    <div class="sub-section reveal">
-      <div class="sub-header">
-        <span class="sub-header-num">2</span>
-        <div class="sub-header-text"><h3>Growth &amp; Delivery</h3><p>Scaling systems and operations</p></div>
-      </div>
-      <div class="org-group">
-        <div class="org-group-header"><h4>LegaSea</h4><span>Auckland, NZ</span></div>
-        <div class="nested-roles">
-          <div class="nested-role">
-            <h3 class="tl-role">Programme Growth Lead &nbsp;<span style="font-size:0.65rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--fern);background:rgba(93,122,90,0.12);border:1px solid rgba(93,122,90,0.3);padding:0.15rem 0.55rem;border-radius:2px;vertical-align:middle;">Current</span></h3>
-            <p class="tl-date">May 2026 – Present</p>
-            <div class="tl-body">
-              <p>Focused on scaling and launching new fundraisers to generate income, while improving back-end systems.</p>
-              <ul>
-                <li>Retrofitted, launched and managed a mobile coffee cart as a monthly fundraising opportunity.</li>
-                <li>Doubled the Cans 4 Kai monthly collections from ~800 kg to over 1,500 kg by tightening existing relationships and onboarding new partners.</li>
-                <li>Delivered site enhancements and process improvements including: two new payments and reporting apps, upgrades and maintenance on four trailers, and upgraded project management workflows.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="nested-role">
-            <h3 class="tl-role">Kai Ika Operations Manager</h3>
-            <p class="tl-date">October 2025 – May 2026</p>
-            <div class="tl-body">
-              <p>Managed day to day operations across the Kai Ika Programme, including the filleting station at Westhaven Marina, kaimoana distributions, always-on recycling fundraisers, and weekly competitions and events.</p>
-              <ul>
-                <li>Managed daily operations at the Kai Ika Project Filleting Station at Westhaven Marina; processing fish, collecting kaimoana for redistribution, and educating everyday people about our marine systems.</li>
-                <li>Supported the delivery of over 2,500 kg of free fish heads and frames to communities each week via Marae and community partners.</li>
-                <li>Operated Cans 4 Kai, a fundraising initiative collecting and recycling one tonne of aluminium each month.</li>
-                <li>Delivered a series of mobile filleting events and engagement opportunities with key partners and the general public.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="org-group">
-        <div class="org-group-header"><h4>Auckland Transport</h4><span>Auckland, NZ</span></div>
-        <div class="nested-roles">
-          <div class="nested-role">
-            <h3 class="tl-role">Senior Travel Demand Planner</h3>
-            <p class="tl-date">September 2021 – May 2022</p>
-            <div class="tl-body">
-              <p>Tripled team capacity, saving 500 hours annually by developing numerous customer facing and backend systems.</p>
-              <ul>
-                <li>Product owner for a new CRM tool to manage the TravelWise B2B programme.</li>
-                <li>Developed a proof of concept travel gamification app.</li>
-                <li>Created a new travel survey platform to report on and share CO2, time and cost savings.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3. Behavioural Science -->
-    <div class="sub-section reveal">
-      <div class="sub-header">
-        <span class="sub-header-num">3</span>
-        <div class="sub-header-text"><h3>Behavioural Science</h3><p>Evidence-based behaviour change</p></div>
-      </div>
-      <div class="org-group">
-        <div class="org-group-header"><h4>Auckland Transport</h4><span>Auckland, NZ</span></div>
-        <div class="nested-roles">
-          <div class="nested-role">
-            <h3 class="tl-role">Travel Demand Planner</h3>
-            <p class="tl-date">November 2019 – September 2021</p>
-            <div class="tl-body">
-              <p>Developed behavioural science–informed, equity-based transport initiatives including the e-bike loan scheme, unicycle hackathon, and area-based action plans.</p>
-              <ul>
-                <li>Led the Aotearoa Bike Challenge — 40 events, 617 businesses, 7,500 participants — exceeding monthly cycling targets by 9.4%.</li>
-                <li>Led three regional month-long campaigns reaching over 200,000 Aucklanders.</li>
-                <li>Maintained extensive networks across NZ policy makers, private enterprise, and global suppliers.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    </div><!-- end left col -->
-
-    <!-- RIGHT: sticky stats panel -->
-    <div class="consulting-stats reveal">
-      <div class="stat-card stat-card-dark">
-        <div class="stat-card-num">10</div>
-        <div class="stat-card-label">New locations delivered</div>
-        <div class="stat-card-desc">World's first community Bike Hub Network, grown from four to 14 sites across Auckland.</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-num">700<em>+</em></div>
-        <div class="stat-card-label">Hours saved</div>
-        <div class="stat-card-desc">Collective annual time savings from systems improvements across different roles.</div>
-      </div>
-      <div class="stat-card stat-card-dark">
-        <div class="stat-card-num">100<em>k</em></em></div>
-        <div class="stat-card-label">Fish head and frames distributed</div>
-        <div class="stat-card-desc">In partnership with marae and communities per annum.</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-num">250<em>+</em></div>
-        <div class="stat-card-label">Established relationships</div>
-        <div class="stat-card-desc">Across Aotearoa government, policy, science, and environmental sectors.</div>
-      </div>
-    </div><!-- end stats panel -->
-
-    </div><!-- end consulting-layout -->
-
-    <!-- 3-column info boxes at the bottom -->
-    <div class="consulting-boxes reveal">
-      <div class="sidebar-block">
-        <h3>Awards &amp; Speaking</h3>
-        <div class="award-item"><span class="award-icon">🏆</span><div class="award-body"><h4>Trafinz Sustainability Leadership Award</h4><p>Co-awarded for the Auckland Bike Hub Network, September 2023</p></div></div>
-        <div class="award-item"><span class="award-icon">🎤</span><div class="award-body"><h4>2Walk&amp;Cycle Conference Presentation</h4><p>Auckland Bike Hub Network — vision, process &amp; key learnings. Wellington, February 2024</p></div></div>
-        <div class="award-item"><span class="award-icon">🎤</span><div class="award-body"><h4>Trafinz Conference Co-Presentation</h4><p>Presented alongside EcoMatters, largest network operator. September 2023</p></div></div>
-      </div>
-      <div class="sidebar-block">
-        <h3>Capabilities</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Programme Management</span><span class="skill-tag">Stakeholder Engagement</span><span class="skill-tag">Co-design</span><span class="skill-tag">Procurement</span><span class="skill-tag">Behavioural Science</span><span class="skill-tag">Policy Development</span><span class="skill-tag">Agile Delivery</span><span class="skill-tag">Facilitation</span><span class="skill-tag">CRM &amp; Digital Tools</span><span class="skill-tag">Transport Planning</span><span class="skill-tag">Operations &amp; Growth</span>
-        </div>
-      </div>
-      <div class="sidebar-block">
-        <h3>Formal Training</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Foundations of Facilitation</span><span class="skill-tag">IAP2 Engagement Design</span><span class="skill-tag">Fundamentals of Agile (ICAgile)</span><span class="skill-tag">Decolonisation — Tauiwi Solutions</span><span class="skill-tag">Ngā Kete — Māori Engagement</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <span class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--cream);"><path d="M0,40 C400,0 1000,60 1440,20 L1440,60 L0,60 Z" fill="var(--ocean)"/></svg></span>
 
-<section id="science">
+<!-- SERVICES / WHAT WE DO -->
+<section id="services">
   <div class="section-inner">
     <div class="reveal">
-      <span class="section-tag">Science &amp; Communication</span>
-      <h2 class="section-title">Research, Policy<br>&amp; Writing</h2>
-      <p class="section-intro">A First Class Honours in Marine and Environmental Science, grounded in real-world field monitoring and a track record of turning evidence into policy and public action.</p>
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Four ways we<br>get involved.</h2>
+      <p class="section-intro">We embed where you need us — from high-level strategy through to hands-on day-to-day delivery.</p>
     </div>
-    <div class="sub-section reveal">
-      <div class="sub-header sub-header-dark">
-        <span class="sub-header-num">1</span>
-        <div class="sub-header-text"><h3>Academic Qualifications</h3><p>University of Auckland</p></div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Programme Management</h3>
+        <p>End-to-end delivery across complex, multi-stakeholder programmes. From scoping and design through procurement, construction, and handover. We hold the thread so nothing falls through the gaps.</p>
       </div>
-      <div class="science-grid">
-        <div class="sci-card"><div class="sci-card-icon">🔬</div><p class="sci-meta">University of Auckland · 2021–2022</p><h3>PhD Proposal</h3><p><em>How do science, society, and policy overlap in the use of wastewater-based epidemiology to monitor and reduce drug-related harm in Aotearoa New Zealand?</em> PhD proposal pursued for 1 year, but eventually abandoned due to a lack of funding available during Covid-19.</p></div>
-        <div class="sci-card"><div class="sci-card-icon">🎓</div><p class="sci-meta">University of Auckland · 2019</p><h3>BSc Hons — First Class</h3><p><em>Community, Place and Greenways — Social Perspectives and Meaning of Place in Green Transport Infrastructure.</em> An exploration of how different users of urban infrastructure relate and give meaning to these spaces. GPA 8.0 / 9.</p></div>
-        <div class="sci-card"><div class="sci-card-icon">🌊</div><p class="sci-meta">University of Auckland · 2015–2018</p><h3>BSc — Marine &amp; Environmental Science</h3><p>GPA 6.8. First in Course, Marine 202. Runner-up, Budding Marine Conservation Steward Award (Conservation International).</p></div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Growth &amp; New Delivery</h3>
+        <p>Scaling existing services and standing up new ones. Systems thinking, operational design, and the strategic clarity to grow without breaking what already works.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Fundraising &amp; Contracts</h3>
+        <p>Securing the income to keep good work going. Grant writing, contract management, and revenue diversification for non-profits and community organisations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>Tactical Delivery</h3>
+        <p>Hands-on support when you need to move fast. Embedded delivery capacity without the overhead — for programmes in transition, under pressure, or just getting started.</p>
       </div>
     </div>
-    <div class="sub-section reveal">
-      <div class="sub-header sub-header-dark">
-        <span class="sub-header-num">2</span>
-        <div class="sub-header-text"><h3>Science &amp; Policy</h3><p>Research, monitoring &amp; advocacy</p></div>
-      </div>
-      <div class="science-grid" style="margin-bottom:0;">
-        <div class="sci-card"><div class="sci-card-icon">🌿</div><p class="sci-meta">Green Party of Aotearoa · 2021–2024</p><h3>Policy Co-Convenor &amp; Researcher</h3><p>Co-convened a standing committee managing ten policies across democracy, global affairs, and science. Led research and drafting of transport, housing, and urban policy. Facilitated a team of eight using decolonised engagement methodologies.</p></div>
-        <div class="sci-card"><div class="sci-card-icon">🔬</div><p class="sci-meta">Auckland Council RIMU · 2018–2019</p><h3>Environmental Monitoring &amp; Research</h3><p>Monitored Auckland's long-term environmental conditions via regular field sampling. Managed databases in R, wrote department-wide protocols, and identified cost-saving efficiencies.</p></div>
-      </div>
-      <div class="comms-strip">
-        <div class="comm-chip"><span class="comm-chip-icon">📢</span><div class="comm-chip-text"><h4>Plastic Diet Spokesperson</h4><p>University of Auckland, 2017–2021. Conferences, community events, and public advocacy for plastic-free living.</p></div></div>
-        <div class="comm-chip"><span class="comm-chip-icon">🌱</span><div class="comm-chip-text"><h4>Sustainable Future Collective</h4><p>Founding member, University of Auckland, 2018–2019.</p></div></div>
+    <div class="sectors-block reveal">
+      <h3>Sectors We Work In</h3>
+      <div class="sector-tags">
+        <span class="sector-tag">Marine, Environment &amp; Coastal</span>
+        <span class="sector-tag">Urban, Transport &amp; Active Travel</span>
+        <span class="sector-tag">Community &amp; Non-profit</span>
+        <span class="sector-tag">Behavioural Science &amp; Change</span>
+        <span class="sector-tag">Science &amp; Policy</span>
+        <span class="sector-tag">Fundraising &amp; Operations</span>
       </div>
     </div>
   </div>
@@ -511,102 +306,171 @@
 
 <span class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--ocean);"><path d="M0,20 C300,60 700,0 1000,40 C1200,65 1340,10 1440,30 L1440,60 L0,60 Z" fill="var(--white)"/></svg></span>
 
-<section id="marine">
-  <div class="marine-bg-shape"></div>
+<!-- OUR WORK -->
+<section id="work">
   <div class="section-inner">
     <div class="reveal">
-      <span class="section-tag">Marine &amp; Engineering</span>
-      <h2 class="section-title">On the Water</h2>
-      <p class="section-intro">From restoring yachts to pay university tuition, to standing watch aboard a 48m superyacht in New York — I've spent my life on and under the oceans.</p>
+      <span class="section-tag">Selected Work</span>
+      <h2 class="section-title">A few things<br>we've delivered.</h2>
+      <p class="section-intro">Across government, non-profit, and community sectors — from national programmes to hands-on operations.</p>
     </div>
-    <div class="marine-timeline reveal">
-      <div class="mtl-item"><p class="mtl-org">S/Y Arabella · New York, USA</p><h4 class="mtl-role">Deck / Engineer — 48m Sailing Yacht</h4><p class="mtl-date">June – October 2025</p><div class="mtl-body">Shadowed the first engineer on all systems: hydraulic furler and windlass rebuilds, generator and main engine servicing, AC/DC rewiring, fresh water replumbing. Repainted aluminium topsides with Awlgrip. Stood watch on overnight deliveries and charter weeks.</div></div>
-      <div class="mtl-item"><p class="mtl-org">Contract Yacht Work · NZ &amp; USA</p><h4 class="mtl-role">Refits &amp; Restorations</h4><p class="mtl-date">2015 – 2018</p><div class="mtl-body">Delivered a 35m ex-trawler 700nm around the coast of NZ. Restored yachts from 6–12m: full electrical rewires, diesel engine rebuilds, deck repairs, rig replacement, plumbing, and boat building.</div></div>
-      <div class="mtl-item"><p class="mtl-org">Chesapeake Boating Club · Baltimore, USA</p><h4 class="mtl-role">Dockhand → Baltimore Manager</h4><p class="mtl-date">May 2013 – February 2016</p><div class="mtl-body">Managed a 21-boat member marina at age 18. Led all repairs and maintenance, trained 15 contractors, and grew membership 10%.</div></div>
-      <div class="mtl-item"><p class="mtl-org">JWorld Annapolis · Baltimore, USA</p><h4 class="mtl-role">Sailing Coach &amp; Guide</h4><p class="mtl-date">May 2014 – February 2015</p><div class="mtl-body">Taught adults and teenagers to sail over five-day courses. Skippered 50+ three-hour guided harbour tours on unpowered sloops.</div></div>
-    </div>
-    <div class="marine-certs">
-      <div class="cert-block reveal"><h3>Qualifications</h3><ul class="cert-list"><li>STCW 95 Basic Training <span class="cert-year">2024 · exp. 2029</span></li><li>SSI DiveMaster <span class="cert-year">2024</span></li><li>ENG1 Medical <span class="cert-year">2024 · exp. 2026</span></li><li>NZCG Boatmaster <span class="cert-year">2024</span></li><li>MNZ VHF Radio Operator <span class="cert-year">2021</span></li><li>ASA 101–104 Bareboat Cruising <span class="cert-year">2010</span></li><li>Swiftwater &amp; Flood Rescue <span class="cert-year">2018</span></li></ul></div>
-      <div class="cert-block reveal"><h3>Engineering Skills</h3><ul class="cert-list"><li>Brightwork — LP paint, varnish, stain</li><li>Diesel engine maintenance</li><li>AC/DC electrical systems</li><li>Plumbing &amp; head systems</li><li>Deck systems &amp; winch repair</li><li>Fibreglass &amp; gelcoat repair</li><li>Light carpentry</li></ul></div>
-      <div class="cert-block reveal" style="background:var(--ocean);border-color:transparent;"><h3 style="color:var(--foam);border-bottom-color:rgba(255,255,255,0.08);">At a Glance</h3><div class="stats-grid"><div class="stat-item"><div class="stat-num">5k</div><div class="stat-label">Nautical miles</div></div><div class="stat-item"><div class="stat-num">48m</div><div class="stat-label">Largest vessel</div></div><div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Boats restored</div></div><div class="stat-item"><div class="stat-num">12yr</div><div class="stat-label">On the water</div></div></div></div>
+    <div class="work-grid reveal">
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-govt">Govt · Programme Growth</span>
+          <span class="work-client">Auckland Transport</span>
+          <h3>Auckland Bike Hub Network</h3>
+        </div>
+        <p>Delivered the world's first network of free, community-run bike repair shops — growing from four to 14 locations across Auckland on a $2 million budget. Co-designed with hundreds of stakeholders, from elected members to cultural groups.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">14</span><span class="stat-l">Sites delivered</span></div>
+          <div class="work-stat-item"><span class="stat-n">50<em>k</em></span><span class="stat-l">Aucklanders / yr</span></div>
+          <div class="work-stat-item"><span class="stat-n">$2<em>m</em></span><span class="stat-l">Budget managed</span></div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-nonprofit">Non-profit · Operations &amp; Fundraising</span>
+          <span class="work-client">LegaSea</span>
+          <h3>Kai Ika Programme</h3>
+        </div>
+        <p>Managed and grew a flagship kaimoana distribution and fundraising programme from Westhaven Marina — the largest in the Southern Hemisphere. Delivered weekly events, recycling fundraisers, and community distributions via Marae and partners.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">2,500<em>kg</em></span><span class="stat-l">Distributed / week</span></div>
+          <div class="work-stat-item"><span class="stat-n">1,500<em>kg</em></span><span class="stat-l">Aluminium recycled / mo</span></div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-govt">Govt · Behavioural Change</span>
+          <span class="work-client">Auckland Transport</span>
+          <h3>Human Infrastructure of Cycling</h3>
+        </div>
+        <p>Designed a three-year programme for Onehunga addressing the social, cultural, and individual barriers to cycling alongside new infrastructure. Alongside regional campaigns reaching over 200,000 Aucklanders and the Aotearoa Bike Challenge.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">3<em>yr</em></span><span class="stat-l">Programme</span></div>
+          <div class="work-stat-item"><span class="stat-n">200<em>k+</em></span><span class="stat-l">People reached</span></div>
+          <div class="work-stat-item"><span class="stat-n">7,500</span><span class="stat-l">Challenge participants</span></div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-community">Community · Delivery</span>
+          <span class="work-client">Auckland Transport</span>
+          <h3>Personal Journey Planning</h3>
+        </div>
+        <p>Led a doorstep engagement programme informing thousands of households about travel and energy choices — coordinating operations across nearly 2,000 households and 17 team members, with a focus on equity and real behavioural outcomes.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">2,000<em>+</em></span><span class="stat-l">Households reached</span></div>
+          <div class="work-stat-item"><span class="stat-n">17</span><span class="stat-l">Team members</span></div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-govt">Govt · Systems &amp; Growth</span>
+          <span class="work-client">Auckland Transport</span>
+          <h3>TravelWise B2B Programme</h3>
+        </div>
+        <p>Tripled team capacity by developing new customer-facing and backend systems — including a new CRM, travel survey platform, and proof-of-concept gamification app. Saved over 500 hours of staff time annually.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">500<em>+</em></span><span class="stat-l">Hours saved / yr</span></div>
+          <div class="work-stat-item"><span class="stat-n">3<em>x</em></span><span class="stat-l">Capacity increase</span></div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-header">
+          <span class="client-type-tag tag-govt">Govt · Policy &amp; Research</span>
+          <span class="work-client">Green Party of Aotearoa</span>
+          <h3>Policy Research &amp; Convenorship</h3>
+        </div>
+        <p>Co-convened a standing policy committee across democracy, global affairs, and science. Led research and drafting of transport, housing, and urban policy. Facilitated a team of eight using decolonised engagement methodologies.</p>
+        <div class="work-stats">
+          <div class="work-stat-item"><span class="stat-n">10</span><span class="stat-l">Policies managed</span></div>
+          <div class="work-stat-item"><span class="stat-n">3<em>yr</em></span><span class="stat-l">Engagement</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <span class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--white);"><path d="M0,30 C240,0 480,60 720,30 C960,0 1200,55 1440,25 L1440,60 L0,60 Z" fill="var(--deep)"/></svg></span>
 
-<section id="music">
-  <div class="music-bg"></div>
-  <div class="section-inner" style="position:relative;z-index:1;">
-    <div class="reveal music-header">
-      <img 
-        src="https://raw.githubusercontent.com/bopde/mansfield/main/mid%20jam.jpg" 
-        alt="Ben playing saxophone"
-        class="music-photo"
-        crossorigin="anonymous"
-      />
-      <span class="section-tag">Music</span>
-      <h2 class="section-title">Sound &amp;<br>Performance</h2>
-      <p class="section-intro">Multi-instrumentalist and live music performer. Small time musician on the lookout for more people to jam with.</p>
+<!-- OUR PEOPLE -->
+<section id="people">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Our People</span>
+      <h2 class="section-title">Who you'd be<br>working with.</h2>
+      <p class="section-intro">A small, senior team. Every engagement is led by someone who has done this before.</p>
     </div>
-    <div class="music-layout">
-      <div class="instruments-showcase reveal">
-        <div class="instr-card"><span class="instr-icon">🎷</span><div class="instr-body"><h4>Saxophone</h4><p>Primary instrument. From jazz standards to improvised sessions and live performance.</p></div></div>
-        <div class="instr-card"><span class="instr-icon">🎸</span><div class="instr-body"><h4>Guitar</h4><p>Live looping and acoustic singer / songwriter.</p></div></div>
-        <div class="instr-card"><span class="instr-icon">🎹</span><div class="instr-body"><h4>Piano</h4><p>Musical theory, improvisation, and light composition.</p></div></div>
-      </div>
-      <div class="music-context reveal">
-        <span class="genre-label">Genre Interests</span>
-        <div class="genre-pills">
-          <span class="genre-pill">Jazz</span><span class="genre-pill">Funk</span><span class="genre-pill">Blues</span><span class="genre-pill">RnB</span><span class="genre-pill">Afrobeats</span><span class="genre-pill">Latin</span><span class="genre-pill">Classical</span>
+    <div class="people-grid reveal">
+
+      <div class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://raw.githubusercontent.com/bopde/mansfield/main/linkedin.jpg" alt="Ben Mansfield" class="person-photo" crossorigin="anonymous"/>
         </div>
-        <span class="genre-label" style="margin-top:1.4rem;">Key Influences</span>
-          <!--
-            Influences ordered by stylistic relatedness:
-            1. Bebop foundations (saxophone-forward): Charlie Parker (bebop sax originator),
-               Thelonious Monk (bebop piano, core Parker-era), Art Pepper (West Coast bebop/post-bop sax).
-            2. Modal & post-bop jazz: Miles Davis (modal jazz pioneer, link between bebop and modern),
-               John Coltrane (modal sax, Miles alumnus), Yusef Lateef (spiritual jazz, world-music sax/flute),
-               Stan Getz (cool jazz / bossa nova sax).
-            3. ECM & contemporary saxophone: Jan Garbarek (ECM Scandinavian jazz sax),
-               Joshua Redman (contemporary jazz sax), Ed Palermo (orchestral jazz / avant-garde arranger).
-            4. Jazz piano: Keith Jarrett (ECM solo improvisation, links modal and free jazz).
-            5. Soul & jazz vocals: Nina Simone (jazz/blues/civil-rights soul),
-               Donny Hathaway (soul/R&B with deep jazz harmonic language).
-            6. World & global roots: Hermeto Pascoal (Brazilian world-music polymath),
-               Femi Kuti (Nigerian Afrobeats, son of Fela), Manu Chao (global/Latin/world-music).
-            7. Singer-songwriters: Joni Mitchell (folk/jazz, sophisticated harmony),
-               Tracy Chapman (folk/blues storytelling).
-            8. Contemporary & funk: Vulfpeck (modern pocket funk), Oli Parker, GeeJay.
-          -->
-          <div class="genre-pills">
-            <span class="genre-pill">Charlie Parker</span><span class="genre-pill">Thelonious Monk</span><span class="genre-pill">Art Pepper</span><span class="genre-pill">Miles Davis</span><span class="genre-pill">John Coltrane</span><span class="genre-pill">Yusef Lateef</span><span class="genre-pill">Stan Getz</span><span class="genre-pill">Jan Garbarek</span><span class="genre-pill">Joshua Redman</span><span class="genre-pill">Ed Palermo</span><span class="genre-pill">Keith Jarrett</span><span class="genre-pill">Nina Simone</span><span class="genre-pill">Donny Hathaway</span><span class="genre-pill">Hermeto Pascoal</span><span class="genre-pill">Femi Kuti</span><span class="genre-pill">Manu Chao</span><span class="genre-pill">Joni Mitchell</span><span class="genre-pill">Tracy Chapman</span><span class="genre-pill">Vulfpeck</span><span class="genre-pill">Oli Parker</span><span class="genre-pill">GeeJay</span>
+        <div>
+          <p class="person-role">Director</p>
+          <h3 class="person-name">Ben Mansfield</h3>
+          <p class="person-bio">Programme manager, behavioural scientist, and marine engineer with fifteen years across government, non-profit, and environmental sectors in New Zealand and the United States. Passionate about the oceans, urban environments, and the creative arts.</p>
+          <div class="person-tags">
+            <span class="person-tag">Programme Management</span>
+            <span class="person-tag">Behavioural Science</span>
+            <span class="person-tag">Marine Engineering</span>
+            <span class="person-tag">Stakeholder Engagement</span>
+            <span class="person-tag">Co-design</span>
+            <span class="person-tag">Policy</span>
           </div>
+          <a href="profile.html" class="person-link">Full profile →</a>
+        </div>
       </div>
+
+      <div class="person-card person-card--ghost">
+        <div class="person-photo-wrap">
+          <div class="person-photo-placeholder">+</div>
+        </div>
+        <div>
+          <span class="recruiting-badge">Now Recruiting</span>
+          <h3 class="person-name">Programme Lead</h3>
+          <p class="person-bio">We're looking for a motivated Programme Lead to join us. If you're a delivery-focused problem solver with experience in the public or non-profit sector — and you want to work on programmes that matter — we'd love to hear from you.</p>
+          <a href="mailto:ben@mansfield.consulting" class="person-link">Express interest →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <span class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="background:var(--deep);"><path d="M0,15 C360,60 900,0 1440,40 L1440,60 L0,60 Z" fill="var(--cream)"/></svg></span>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="reveal">
-      <span class="section-tag">Contact</span>
-      <h2 class="section-title">Let's Talk</h2>
-      <p class="section-intro">Whether it's a conversation about growing your non-profit, drafting reponsive policy, fixing your yacht, an offshore adventure, or a musical collaboration — I'd love to hear from you.</p>
+      <span class="section-tag">Let's Talk</span>
+      <h2 class="section-title">Got a programme<br>to build or save?</h2>
+      <p class="section-intro">Whether it's a conversation about a programme you're trying to grow, funding you need to secure, or a situation you need to navigate — get in touch.</p>
     </div>
     <div class="contact-grid reveal">
-      <a href="mailto:Ben@Mansfield.consulting" class="contact-chip"><span>✉</span>Ben@Mansfield.consulting</span></a>
-      <a href="tel:+64226460483" class="contact-chip"><span>📱</span> +64 22 646 0483</a>
-      <a href="https://linkedin.com/in/b-mansfield" class="contact-chip" target="_blank" rel="noopener"><span style="font-weight:700;">in</span> LinkedIn</a>
+      <a href="mailto:ben@mansfield.consulting" class="contact-chip">✉ ben@mansfield.consulting</a>
+      <a href="https://mansfield.consulting" class="contact-chip">🌐 mansfield.consulting</a>
+      <span class="contact-chip contact-chip--static">📍 Auckland &amp; Wellington</span>
     </div>
   </div>
 </section>
 
-<footer><p>© 2026 Ben Mansfield · Auckland, New Zealand · <a href="#hero">Back to top ↑</a></p></footer>
+<footer>
+  <p>© 2026 Mansfield Consulting · Auckland &amp; Wellington, Aotearoa New Zealand · <a href="#hero">Back to top ↑</a></p>
+</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -627,7 +491,7 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(a => a.classList.remove('active'));
-                const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+        const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
         if (active) active.classList.add('active');
       }
     });
