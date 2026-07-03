@@ -44,11 +44,17 @@
       border-bottom: 1px solid rgba(74,144,184,0.14);
     }
     .nav-logo {
-      font-family: var(--fd); font-size: 1.1rem; font-weight: normal;
-      letter-spacing: 0.1em; color: var(--foam); text-decoration: none;
-      text-transform: uppercase; white-space: nowrap; cursor: pointer;
+      font-family: var(--fd); font-size: 1.18rem; font-weight: normal;
+      letter-spacing: 0.01em; color: var(--foam); text-decoration: none;
+      white-space: nowrap; cursor: pointer;
+      display: flex; align-items: baseline; gap: 0.55rem;
     }
-    .nav-logo em { font-style: italic; color: var(--sky); }
+    .nav-logo-dot { color: var(--sky); }
+    .nav-logo-sub {
+      font-family: var(--fb); font-size: 0.58rem; font-weight: 400;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(214,234,248,0.38);
+    }
     .nav-links { display: flex; gap: 1.8rem; list-style: none; }
     .nav-links a {
       font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em;
@@ -74,8 +80,8 @@
     .home-hero {
       min-height: calc(100vh - 64px); display: flex; align-items: center;
       position: relative; overflow: hidden;
-      background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(26,82,118,0.4) 0%, transparent 65%),
-                  radial-gradient(ellipse 50% 70% at 5% 90%, rgba(61,92,58,0.3) 0%, transparent 60%);
+      background: radial-gradient(ellipse 80% 65% at 18% 45%, rgba(26,82,118,0.32) 0%, transparent 68%),
+                  radial-gradient(ellipse 45% 55% at 2% 92%, rgba(61,92,58,0.22) 0%, transparent 60%);
       padding: 4rem 2.8rem 6rem;
     }
     .home-hero-inner { max-width: 1060px; margin: 0 auto; width: 100%; }
@@ -84,33 +90,42 @@
       text-transform: uppercase; color: var(--fern); margin-bottom: 1.4rem;
       animation: fadeUp 1s 0.1s ease both;
     }
+    .home-lockup { animation: fadeUp 1s 0.2s ease both; margin-bottom: 2.4rem; }
     .home-wordmark {
       font-family: var(--fd); font-size: clamp(4rem,8vw,9rem);
       font-weight: normal; line-height: 0.93; color: var(--foam);
-      letter-spacing: -0.02em; margin-bottom: 0.2em;
-      animation: fadeUp 1s 0.2s ease both;
+      letter-spacing: -0.02em;
     }
-    .home-wordmark em { font-style: italic; color: var(--sky); display: block; }
+    .home-wordmark-dot { color: var(--sky); }
+    .home-lockup-rule {
+      width: 100%; max-width: 640px; height: 1px;
+      background: rgba(214,234,248,0.1); margin: 1rem 0 0.8rem;
+    }
+    .home-lockup-sub {
+      font-family: var(--fb); font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(214,234,248,0.42);
+    }
     .home-tagline {
-      font-size: clamp(1.05rem,2vw,1.3rem); font-weight: 300;
-      color: rgba(214,234,248,0.68); max-width: 520px; line-height: 1.65;
-      margin-bottom: 0.6rem; animation: fadeUp 1s 0.33s ease both;
+      font-size: clamp(1rem,2vw,1.2rem); font-weight: 300;
+      color: rgba(214,234,248,0.62); max-width: 480px; line-height: 1.7;
+      margin-bottom: 0.5rem; animation: fadeUp 1s 0.38s ease both;
     }
     .home-sub {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em;
-      text-transform: uppercase; color: rgba(214,234,248,0.3);
-      margin-bottom: 3.5rem; animation: fadeUp 1s 0.4s ease both;
+      font-size: 0.7rem; font-weight: 400; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(214,234,248,0.22);
+      margin-bottom: 3.5rem; animation: fadeUp 1s 0.46s ease both;
     }
     .home-cards {
       display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
-      border: 1px solid rgba(74,144,184,0.16); border-radius: 4px;
-      overflow: hidden; animation: fadeUp 1s 0.5s ease both;
+      border: 1px solid rgba(74,144,184,0.13); border-radius: 8px;
+      overflow: hidden; animation: fadeUp 1s 0.54s ease both;
     }
     .home-card {
-      background: rgba(255,255,255,0.03); padding: 1.8rem 1.5rem;
-      cursor: pointer; transition: background 0.2s;
-      border-right: 1px solid rgba(74,144,184,0.12);
-      display: flex; flex-direction: column; gap: 0.6rem;
+      background: rgba(255,255,255,0.025); padding: 2rem 1.6rem;
+      cursor: pointer; transition: background 0.25s;
+      border-right: 1px solid rgba(74,144,184,0.1);
+      display: flex; flex-direction: column; gap: 0.7rem;
     }
     .home-card:last-child { border-right: none; }
     .home-card:hover { background: rgba(74,144,184,0.1); }
@@ -168,12 +183,12 @@
     /* ── EXPERIENCE CARDS ── */
     .exp-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.6rem; }
     .exp-card {
-      background: var(--cream); border: 1px solid rgba(13,46,74,0.07);
-      border-radius: 4px; overflow: hidden;
+      background: var(--cream); border: 1px solid rgba(13,46,74,0.06);
+      border-radius: 10px; overflow: hidden;
       display: flex; flex-direction: column;
       transition: box-shadow 0.25s, transform 0.2s;
     }
-    .exp-card:hover { box-shadow: 0 8px 28px rgba(13,46,74,0.1); transform: translateY(-3px); }
+    .exp-card:hover { box-shadow: 0 10px 36px rgba(13,46,74,0.09); transform: translateY(-3px); }
     .exp-card.wide { grid-column: 1 / -1; }
 
     /* photo placeholder */
@@ -235,8 +250,8 @@
     /* ── CERT / QUAL CARDS ── */
     .qual-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 1.5rem; }
     .qual-card {
-      background: var(--white); border: 1px solid rgba(13,46,74,0.09);
-      border-radius: 4px; padding: 1.4rem 1.5rem;
+      background: var(--white); border: 1px solid rgba(13,46,74,0.07);
+      border-radius: 8px; padding: 1.4rem 1.5rem;
     }
     .qual-card h4 { font-family: var(--fd); font-size: 1rem; font-weight: normal; color: var(--ocean); margin-bottom: 0.3rem; }
     .qual-card p { font-size: 0.78rem; color: #777; line-height: 1.55; }
@@ -250,11 +265,11 @@
       padding: 3rem 2.8rem 5rem; max-width: 1060px; margin: 0 auto;
     }
     .person-card {
-      background: var(--cream); border: 1px solid rgba(13,46,74,0.08);
-      border-radius: 4px; overflow: hidden;
+      background: var(--cream); border: 1px solid rgba(13,46,74,0.07);
+      border-radius: 10px; overflow: hidden;
       transition: box-shadow 0.25s, transform 0.2s;
     }
-    .person-card:hover { box-shadow: 0 8px 28px rgba(13,46,74,0.1); transform: translateY(-3px); }
+    .person-card:hover { box-shadow: 0 10px 36px rgba(13,46,74,0.09); transform: translateY(-3px); }
     .person-card--ghost { border-style: dashed; border-color: rgba(138,170,122,0.3); }
     .person-card--ghost:hover { box-shadow: none; transform: none; }
 
@@ -359,7 +374,7 @@
 <body>
 
 <nav>
-  <span class="nav-logo" onclick="showPage('home')">Mansfield <em>Consulting</em></span>
+  <span class="nav-logo" onclick="showPage('home')">Mansfield<span class="nav-logo-dot">.</span><span class="nav-logo-sub">Consulting</span></span>
   <ul class="nav-links">
     <li><a onclick="showPage('programme')" data-page="programme">Programme Growth</a></li>
     <li><a onclick="showPage('delivery')" data-page="delivery">Tactical Delivery</a></li>
@@ -374,7 +389,11 @@
   <div class="home-hero">
     <div class="home-hero-inner">
       <p class="home-eyebrow">Programme Management · Marine, Environment &amp; Urban</p>
-      <h1 class="home-wordmark">Mansfield<em>Consulting</em></h1>
+      <div class="home-lockup">
+        <h1 class="home-wordmark">Mansfield<span class="home-wordmark-dot">.</span></h1>
+        <div class="home-lockup-rule"></div>
+        <p class="home-lockup-sub">Consulting</p>
+      </div>
       <p class="home-tagline">We help good programmes get funded, get built, and keep running.</p>
       <p class="home-sub">Auckland &amp; Wellington · Est. 2026</p>
       <div class="home-cards">
@@ -971,7 +990,7 @@
       </div>
     </div>
 
-    <div class="person-card person-card--ghost" style="grid-column:1/-1;display:flex;flex-direction:row;overflow:visible;border-radius:4px;">
+    <div class="person-card person-card--ghost" style="grid-column:1/-1;display:flex;flex-direction:row;overflow:visible;">
       <div style="flex:1;padding:2rem;display:flex;align-items:center;gap:1.5rem;">
         <div style="width:56px;height:56px;border-radius:50%;background:rgba(138,170,122,0.08);border:2px dashed rgba(138,170,122,0.25);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:rgba(138,170,122,0.3);flex-shrink:0;">+</div>
         <div>
