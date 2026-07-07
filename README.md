@@ -27,7 +27,7 @@ If you're interested in using this design or code for your own purposes, please 
 
 ### AI Disclosure
 
-**This website was designed and developed with assistance from Claude (Anthropic), an AI assistant.**
+**This website was designed and developed with assistance from Claude (Anthropic).**
 
 While the content, experiences, and achievements are entirely my own, the HTML/CSS code structure, design system, and technical implementation were created through collaborative iteration with Claude AI between January-March 2026.
 
