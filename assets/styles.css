@@ -28,7 +28,7 @@
   --measure: 68ch;
 }
 
-body.page-marine      { --accent: var(--steel); }
+body.page-oceans      { --accent: var(--steel); }
 body.page-environment { --accent: var(--sage); }
 body.page-urbanism    { --accent: var(--clay); }
 
@@ -288,7 +288,7 @@ h1 em, h2 em, h3 em, .lede em {
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
 .sector-card:hover::before { transform: scale(1.35); opacity: 0.2; }
-.sector-card.is-marine      { --sector: var(--steel); }
+.sector-card.is-oceans      { --sector: var(--steel); }
 .sector-card.is-environment { --sector: var(--sage); }
 .sector-card.is-urbanism    { --sector: var(--clay); }
 
@@ -338,6 +338,13 @@ h1 em, h2 em, h3 em, .lede em {
   white-space: nowrap;
 }
 .tags-invert li { background: var(--cream-faint); color: var(--cream-soft); }
+
+/* colour-coordinated tag families */
+.tags .t-delivery  { background: rgba(193,106,63,0.16);  color: #98512d; }   /* operations & delivery — clay */
+.tags .t-fund      { background: rgba(176,139,62,0.18);  color: #7f6126; }   /* fundraising & growth — gold */
+.tags .t-policy    { background: rgba(109,153,186,0.2);  color: #3b678b; }   /* policy, research & science — steel */
+.tags .t-community { background: rgba(125,144,112,0.2);  color: #56694a; }   /* engagement & partnerships — sage */
+.tags .t-eng       { background: rgba(18,41,61,0.12);    color: var(--navy); } /* engineering & systems — navy */
 
 /* ---------- approach list (home) ---------- */
 
