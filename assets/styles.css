@@ -226,6 +226,8 @@ h1 em, h2 em, h3 em, .lede em {
 .btn-solid:hover { background: var(--paper); }
 .btn-ghost { color: var(--cream); border: 1px solid rgba(244,239,227,0.35); }
 .btn-ghost:hover { border-color: var(--cream); }
+.btn-navy { background: var(--navy); color: var(--cream); border: 1px solid var(--navy); }
+.btn-navy:hover { background: var(--ink); }
 
 /* soft aurora blobs behind navy sections */
 .blob {
